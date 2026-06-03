@@ -4,7 +4,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Career Day Basel</title>
 
 <style>
@@ -36,7 +35,7 @@ body::before{
     content:"";
     position:absolute;
     inset:0;
-    background:rgba(0,0,0,.55);
+    background:rgba(0,0,0,.60);
 }
 
 .container{
@@ -54,7 +53,7 @@ body::before{
 
 .title{
     color:white;
-    font-size:20px;
+    font-size:18px;
     font-weight:700;
     margin-bottom:4px;
 }
@@ -66,39 +65,19 @@ body::before{
     margin-bottom:10px;
 }
 
-.countdown{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:6px;
-    width:100%;
-    max-width:220px;
-}
-
-.box{
-    background:rgba(255,255,255,.08);
-    border:1px solid rgba(255,255,255,.15);
-    border-radius:8px;
-    padding:6px;
-    backdrop-filter:blur(8px);
-}
-
-.number{
+.countdownText{
     color:white;
-    font-size:18px;
+    font-size:22px;
     font-weight:700;
-    line-height:1;
+    line-height:1.3;
+    margin-bottom:8px;
 }
 
-.label{
+.countdownText span{
     color:var(--sand);
-    font-size:8px;
-    text-transform:uppercase;
-    letter-spacing:.08em;
-    margin-top:2px;
 }
 
 .footer{
-    margin-top:8px;
     color:white;
     font-size:9px;
     opacity:.9;
@@ -125,28 +104,8 @@ body::before{
         16–18 June 2026
     </div>
 
-    <div id="countdown" class="countdown">
-
-        <div class="box">
-            <div id="days" class="number">0</div>
-            <div class="label">Days</div>
-        </div>
-
-        <div class="box">
-            <div id="hours" class="number">0</div>
-            <div class="label">Hours</div>
-        </div>
-
-        <div class="box">
-            <div id="minutes" class="number">0</div>
-            <div class="label">Minutes</div>
-        </div>
-
-        <div class="box">
-            <div id="seconds" class="number">0</div>
-            <div class="label">Seconds</div>
-        </div>
-
+    <div id="countdownText" class="countdownText">
+        Loading...
     </div>
 
     <div class="footer">
@@ -203,10 +162,11 @@ function updateCountdown(){
         1000
     );
 
-    document.getElementById("days").textContent = days;
-    document.getElementById("hours").textContent = hours;
-    document.getElementById("minutes").textContent = minutes;
-    document.getElementById("seconds").textContent = seconds;
+    document.getElementById("countdownText").innerHTML =
+    `
+    <span>${days}D</span> ${hours}H<br>
+    <span>${minutes}M</span> ${seconds}S
+    `;
 }
 
 updateCountdown();
