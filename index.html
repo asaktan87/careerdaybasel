@@ -1,16 +1,16 @@
-
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Career Day Basel</title>
 
 <style>
 
 :root{
-    --straumann-blue:#195AFA;
-    --straumann-sand:#B98C3C;
+    --sand:#B98C3C;
 }
 
 *{
@@ -32,12 +32,11 @@ body{
     position:relative;
 }
 
-/* Dark overlay */
 body::before{
     content:"";
     position:absolute;
     inset:0;
-    background:rgba(0,0,0,.60);
+    background:rgba(0,0,0,.55);
 }
 
 .container{
@@ -50,64 +49,64 @@ body::before{
     justify-content:center;
     align-items:center;
     text-align:center;
-    padding:8px;
+    padding:10px;
 }
 
 .title{
     color:white;
-    font-size:18px;
+    font-size:20px;
     font-weight:700;
-    margin-bottom:2px;
+    margin-bottom:4px;
 }
 
 .date{
-    color:var(--straumann-sand);
+    color:var(--sand);
     font-size:11px;
     font-weight:600;
-    margin-bottom:8px;
+    margin-bottom:10px;
 }
 
 .countdown{
-    display:flex;
-    justify-content:center;
+    display:grid;
+    grid-template-columns:1fr 1fr;
     gap:6px;
+    width:100%;
+    max-width:220px;
 }
 
-.time-box{
-    min-width:55px;
-    padding:8px 4px;
+.box{
     background:rgba(255,255,255,.08);
     border:1px solid rgba(255,255,255,.15);
-    border-radius:10px;
+    border-radius:8px;
+    padding:6px;
     backdrop-filter:blur(8px);
 }
 
 .number{
-    font-size:20px;
-    font-weight:700;
     color:white;
+    font-size:18px;
+    font-weight:700;
     line-height:1;
 }
 
 .label{
-    margin-top:2px;
+    color:var(--sand);
     font-size:8px;
     text-transform:uppercase;
     letter-spacing:.08em;
-    color:var(--straumann-sand);
+    margin-top:2px;
 }
 
 .footer{
-    margin-top:6px;
+    margin-top:8px;
     color:white;
-    opacity:.85;
-    font-size:10px;
-    font-weight:500;
+    font-size:9px;
+    opacity:.9;
 }
 
 .finished{
-    color:var(--straumann-sand);
-    font-size:20px;
+    color:white;
+    font-size:18px;
     font-weight:700;
 }
 
@@ -128,24 +127,24 @@ body::before{
 
     <div id="countdown" class="countdown">
 
-        <div class="time-box">
+        <div class="box">
             <div id="days" class="number">0</div>
             <div class="label">Days</div>
         </div>
 
-        <div class="time-box">
+        <div class="box">
             <div id="hours" class="number">0</div>
             <div class="label">Hours</div>
         </div>
 
-        <div class="time-box">
+        <div class="box">
             <div id="minutes" class="number">0</div>
-            <div class="label">Min</div>
+            <div class="label">Minutes</div>
         </div>
 
-        <div class="time-box">
+        <div class="box">
             <div id="seconds" class="number">0</div>
-            <div class="label">Sec</div>
+            <div class="label">Seconds</div>
         </div>
 
     </div>
