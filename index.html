@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +23,7 @@ body{
     height:100%;
     overflow:hidden;
     font-family:Segoe UI, Arial, sans-serif;
-    background:#0b1b25;
+    background:transparent;
 }
 
 .container{
@@ -33,19 +32,19 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    padding:4px;
 }
 
 .card{
     position:relative;
     width:100%;
-    max-width:260px;
+    height:100%;
     overflow:hidden;
-    border-radius:8px;
 }
 
 .hero{
     width:100%;
+    height:100%;
+    object-fit:cover;
     display:block;
 }
 
@@ -62,7 +61,7 @@ body{
     linear-gradient(
         to top,
         rgba(0,0,0,.85),
-        rgba(0,0,0,.15)
+        rgba(0,0,0,.10)
     );
 
     padding-bottom:12px;
@@ -78,16 +77,16 @@ body{
 .date{
     color:var(--sand);
     font-size:10px;
-    margin-top:2px;
     font-weight:600;
+    margin-top:2px;
 }
 
 .countdownText{
     color:white;
     font-size:22px;
     font-weight:700;
-    text-align:center;
     line-height:1.2;
+    text-align:center;
     margin-top:8px;
 }
 
@@ -96,9 +95,9 @@ body{
 }
 
 .footer{
+    margin-top:6px;
     color:white;
     font-size:9px;
-    margin-top:6px;
     opacity:.9;
 }
 
@@ -118,7 +117,7 @@ body{
 
     <div class="card">
 
-        <img src="bg1.png" class="hero">
+        <img src="bg1.png" class="hero" alt="Career Day Basel">
 
         <div class="overlay">
 
@@ -206,4 +205,3 @@ setInterval(updateCountdown,1000);
 
 </body>
 </html>
-```
