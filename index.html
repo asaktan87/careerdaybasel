@@ -24,9 +24,6 @@ body{
     height:100%;
     overflow:hidden;
     font-family:Segoe UI, Arial, sans-serif;
-}
-
-body{
     background:#0b1b25;
 }
 
@@ -34,42 +31,64 @@ body{
     width:100%;
     height:100%;
     display:flex;
-    flex-direction:column;
     justify-content:center;
     align-items:center;
-    text-align:center;
-    padding:8px;
+    padding:4px;
 }
 
-/* Banner image */
+.card{
+    position:relative;
+    width:100%;
+    max-width:260px;
+    overflow:hidden;
+    border-radius:8px;
+}
+
 .hero{
     width:100%;
-    max-width:220px;
-    height:auto;
-    border-radius:8px;
-    margin-bottom:8px;
+    display:block;
+}
+
+.overlay{
+    position:absolute;
+    inset:0;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    align-items:center;
+
+    background:
+    linear-gradient(
+        to top,
+        rgba(0,0,0,.85),
+        rgba(0,0,0,.15)
+    );
+
+    padding-bottom:12px;
 }
 
 .title{
     color:white;
-    font-size:16px;
+    font-size:18px;
     font-weight:700;
-    margin-bottom:2px;
+    text-align:center;
 }
 
 .date{
     color:var(--sand);
     font-size:10px;
+    margin-top:2px;
     font-weight:600;
-    margin-bottom:8px;
 }
 
 .countdownText{
     color:white;
-    font-size:20px;
+    font-size:22px;
     font-weight:700;
-    line-height:1.3;
-    margin-bottom:6px;
+    text-align:center;
+    line-height:1.2;
+    margin-top:8px;
 }
 
 .countdownText span{
@@ -79,6 +98,7 @@ body{
 .footer{
     color:white;
     font-size:9px;
+    margin-top:6px;
     opacity:.9;
 }
 
@@ -86,6 +106,7 @@ body{
     color:white;
     font-size:18px;
     font-weight:700;
+    text-align:center;
 }
 
 </style>
@@ -95,22 +116,30 @@ body{
 
 <div class="container">
 
-    <img src="bg1.png" class="hero">
+    <div class="card">
 
-    <div class="title">
-        Career Day Basel
-    </div>
+        <img src="bg1.png" class="hero">
 
-    <div class="date">
-        16–18 June 2026
-    </div>
+        <div class="overlay">
 
-    <div id="countdownText" class="countdownText">
-        Loading...
-    </div>
+            <div class="title">
+                Career Day Basel
+            </div>
 
-    <div class="footer">
-        Explore • Connect • Grow
+            <div class="date">
+                16–18 June 2026
+            </div>
+
+            <div id="countdownText" class="countdownText">
+                Loading...
+            </div>
+
+            <div class="footer">
+                Explore • Connect • Grow
+            </div>
+
+        </div>
+
     </div>
 
 </div>
@@ -127,7 +156,7 @@ function updateCountdown(){
 
     if(difference <= 0){
 
-        document.querySelector(".container").innerHTML = `
+        document.querySelector(".overlay").innerHTML = `
             <div class="finished">
                 🎉 Career Day Basel is here!
             </div>
